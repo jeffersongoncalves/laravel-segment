@@ -1,6 +1,6 @@
 <?php
 
-namespace Jeffersongoncalves\Segment;
+namespace JeffersonGoncalves\Segment;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -11,8 +11,17 @@ class SegmentServiceProvider extends PackageServiceProvider
     {
         $package
             ->name('laravel-segment')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigrations();
+            ->hasConfigFile('segment');
+    }
+
+    public function packageRegistered(): void
+    {
+        $this->app->singleton(Segment::class, function () {
+            return new Segment(
+                config('segment.write_key'),
+                config('segment.access_token'),
+                config('segment.space_id'),
+            );
+        });
     }
 }

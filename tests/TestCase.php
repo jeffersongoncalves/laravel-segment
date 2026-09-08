@@ -1,8 +1,8 @@
 <?php
 
-namespace Jeffersongoncalves\Segment\Tests;
+namespace JeffersonGoncalves\Segment\Tests;
 
-use Jeffersongoncalves\Segment\SegmentServiceProvider;
+use JeffersonGoncalves\Segment\SegmentServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
@@ -12,5 +12,12 @@ class TestCase extends Orchestra
         return [
             SegmentServiceProvider::class,
         ];
+    }
+
+    protected function getEnvironmentSetUp($app): void
+    {
+        $app['config']->set('segment.write_key', 'test-write-key');
+        $app['config']->set('segment.access_token', 'test-access-token');
+        $app['config']->set('segment.space_id', 'spa_123');
     }
 }

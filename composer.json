@@ -3,20 +3,29 @@
     "description": "Laravel client for the Segment HTTP API: track events, identify users, record page views, send batches, and read Personas profile traits and events.",
     "keywords": [
         "laravel",
-        "laravel-segment"
+        "segment",
+        "analytics",
+        "api",
+        "client",
+        "tracking",
+        "events",
+        "cdp"
     ],
     "homepage": "https://github.com/jeffersongoncalves/laravel-segment",
     "license": "MIT",
+    "type": "library",
     "authors": [
         {
-            "name": "Jefferson Simão Gonçalves",
-            "email": "gerson.simao.92@gmail.com"
+            "name": "Jefferson Gonçalves",
+            "email": "gerson.simao.92@gmail.com",
+            "role": "Developer"
         }
     ],
     "require": {
         "php": "^8.2",
-        "spatie/laravel-package-tools": "^1.16",
-        "illuminate/contracts": "^12.0|^13.0"
+        "illuminate/http": "^12.0|^13.0",
+        "illuminate/support": "^12.0|^13.0",
+        "spatie/laravel-package-tools": "^1.16"
     },
     "require-dev": {
         "larastan/larastan": "^3.0",
@@ -27,12 +36,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Jeffersongoncalves\\Segment\\": "src/"
+            "JeffersonGoncalves\\Segment\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Jeffersongoncalves\\Segment\\Tests\\": "tests/"
+            "JeffersonGoncalves\\Segment\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -52,10 +61,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Jeffersongoncalves\\Segment\\SegmentServiceProvider"
+                "JeffersonGoncalves\\Segment\\SegmentServiceProvider"
             ],
             "aliases": {
-                "Segment": "Jeffersongoncalves\\Segment\\Facades\\Segment"
+                "Segment": "JeffersonGoncalves\\Segment\\Facades\\Segment"
             }
         }
     },
